@@ -1,2 +1,5 @@
 # SwiftUI-Course
-Udemy SwiftUI Course Repo
+Udemy SwiftUI Course Samples Repo
+
+- SwiftUI
+- MVVM
