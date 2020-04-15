@@ -36,7 +36,7 @@ struct AddCoffeeOrderView: View {
                 
                 Button("Place Order") {
                     self.addCoffeeOrderVM.placeOrder()
-                    self.isPresented = false
+                    self.isPresented.toggle()
                 }.padding([.top, .bottom], 20)
                     .padding([.leading, .trailing], 100)
                     .foregroundColor(.white)
@@ -67,9 +67,9 @@ struct CoffeeCellView: View {
                 .aspectRatio(contentMode: .fit)
             Text(coffee.name)
                 .font(.title)
-                .padding([.leading], 20)
+                .padding([.leading], 10)
             Spacer()
-            Image(systemName: self.selection == self.coffee.name ? "checkmark" : "" ).padding()
+            Image(systemName: self.selection == self.coffee.name ? "checkmark" : "" ).padding().frame(width: 20, height: 5).foregroundColor(.green)
         }.onTapGesture {
             self.selection = self.coffee.name
         }

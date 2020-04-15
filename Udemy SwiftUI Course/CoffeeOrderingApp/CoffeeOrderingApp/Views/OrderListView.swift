@@ -19,24 +19,7 @@ struct OrderListView: View {
     var body: some View {
         List {
             ForEach(self.orders, id: \.id) { order in
-                HStack {
-                    Image(order.coffeeName)
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .cornerRadius(16)
-                    VStack(alignment: .leading) {
-                        Text(order.name)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        Text(order.coffeeName)
-                            .font(.body)
-                            .fontWeight(.bold)
-                        Text(order.size)
-                            .font(.footnote)
-                            .fontWeight(.bold)
-                            .foregroundColor(.secondary)
-                    }.padding([.leading], 10)
-                }.padding([.top, .bottom], 10)
+                OrderCellView(order: order)
             }
         }
     }

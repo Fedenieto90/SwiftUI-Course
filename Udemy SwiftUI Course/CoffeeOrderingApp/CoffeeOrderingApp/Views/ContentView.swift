@@ -17,11 +17,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             OrderListView(orders: orderListVM.orders)
-            .navigationBarTitle("Orders")
+                .navigationBarTitle("Orders")
                 .navigationBarItems(trailing: Button(action: showAddCoffeeOrderView) {
                     Image(systemName: "plus")
                 })
-                .sheet(isPresented: self.$showModal) {
+                .sheet(isPresented: self.$showModal, onDismiss: {
+                    self.reloadOrders()
+                }) {
                     AddCoffeeOrderView(isPresented: self.$showModal)
             }
         }
@@ -29,6 +31,10 @@ struct ContentView: View {
     
     private func showAddCoffeeOrderView() {
         self.showModal = true
+    }
+    
+    private func reloadOrders() {
+        self.orderListVM.fetchOrders()
     }
 }
 

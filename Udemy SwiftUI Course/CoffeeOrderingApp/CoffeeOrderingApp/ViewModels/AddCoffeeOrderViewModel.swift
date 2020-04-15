@@ -13,7 +13,7 @@ class AddCoffeeOrderViewModel: ObservableObject {
     var webService: WebService!
     var name: String = ""
     @Published var size: String = "Medium"
-    @Published var coffeeName: String = ""
+    @Published var coffeeName: String = "Capuccino"
     
     var coffeeList: [CoffeeViewModel] {
         return Coffee.all().map(CoffeeViewModel.init)
@@ -44,7 +44,7 @@ class AddCoffeeOrderViewModel: ObservableObject {
     func placeOrder() {
         let order = Order(name: self.name, coffeeName: self.coffeeName, size: self.size, total: self.total)
         webService.createOrder(order: order) { response in
-            
+     
         }
     }
     

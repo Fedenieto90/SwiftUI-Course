@@ -11,16 +11,16 @@ import SwiftUI
 struct OrderTotalView: View {
     let total: Double
     var body: some View {
-        HStack(alignment: .center) {
+        HStack(alignment: .bottom) {
             Spacer()
-            Text(String(format: "%.2f", total)).font(.title).foregroundColor(.green)
+            Text(String(format: "$%.2f", total)).font(.title).foregroundColor(.green).fontWeight(.semibold)
             Spacer()
-        }.padding(10)
+        }.padding(50)
     }
 }
 
 struct OrderTotalView_Previews: PreviewProvider {
     static var previews: some View {
-        OrderTotalView(total: 20.0)
+        OrderTotalView(total: 20.0).previewLayout(.sizeThatFits)
     }
 }
